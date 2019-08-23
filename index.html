@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/jquery-2.1.0.js"></script>
+		<script>
+			$(function(){
+				$('#get1').click(function(){
+					alert($('#url').val());
+					alert($('#xpath').val());
+					
+					$.ajax({
+						type:"get",
+						dataType:"jsonp",
+						url:$('#url').val(),
+						async:true,
+						success:function(data){
+							alert('ok');
+							alert(data);
+						},
+						error:function(error){
+							alert('error');
+							alert(error);
+						}
+					});
+					
+					
+					
+					
+					
+				});
+			});
+		</script>
+
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		请输入网址<input type="text" name="url" id="url" value="" /> 请求方法 
+		<select name="method">
+			<option value="get">get</option>
+			<option value="post">post</option>
+		</select><br />
+		请输入xpath <input type="text" name="xpath" id="xpath" value="" /><br />
+		<button id="get1">爬取</button>
+	</body>
+</html>
